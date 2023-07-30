@@ -330,7 +330,7 @@ public partial class HtmlExp
             return HtmlConstants.NoAttributes;
         }
 
-        if (attributeList.Length % 2 == 0)
+        if (attributeList.Length % 2 != 0)
         {
             throw new ArgumentException($"supplied attribute count needs to be divisible by 2: {string.Join(", ", attributeList)}");
         }
