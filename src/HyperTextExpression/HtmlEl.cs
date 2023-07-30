@@ -1,0 +1,46 @@
+using System.Collections.Immutable;
+using System.Text;
+
+namespace HyperTextExpression;
+
+public record struct HtmlEl(
+    string Name,
+    IImmutableDictionary<string, string> Attributes,
+    IEnumerable<HtmlEl> Children,
+    string Text
+)
+{
+    public override string ToString() => PrintHtml.ToString(this);
+
+
+    public static implicit operator HtmlEl(string elName) =>
+        new(elName, HtmlConstants.NoAttributes, HtmlConstants.NoChildren, "");
+
+    public static implicit operator HtmlEl((string, string) el) =>
+        new(el.Item1, HtmlConstants.NoAttributes, HtmlConstants.NoChildren, el.Item2);
+
+    public static implicit operator HtmlEl((string, HtmlEl[]) el) =>
+        new(el.Item1, HtmlConstants.NoAttributes, el.Item2, "");
+
+    public static implicit operator HtmlEl((string, IImmutableDictionary<string, string>) el) =>
+        new(el.Item1, el.Item2, HtmlConstants.NoChildren, "");
+
+    public static implicit operator HtmlEl((string, IImmutableDictionary<string, string>, HtmlEl[]) el) =>
+        new(el.Item1, el.Item2, el.Item3, "");
+
+
+    public static implicit operator HtmlEl((string, IEnumerable<string>) el) =>
+        new(el.Item1, HtmlConstants.NoAttributes, el.Item2.Select(s => (HtmlEl)s).ToImmutableArray(), "");
+
+    public static implicit operator HtmlEl((string, IEnumerable<(string, string)>) el) =>
+        new(el.Item1, HtmlConstants.NoAttributes, el.Item2.Select(s => (HtmlEl)s).ToImmutableArray(), "");
+
+    public static implicit operator HtmlEl((string, IEnumerable<(string, HtmlEl[])>) el) =>
+        new(el.Item1, HtmlConstants.NoAttributes, el.Item2.Select(s => (HtmlEl)s), "");
+
+    public static implicit operator HtmlEl((string, IEnumerable<(string, IImmutableDictionary<string, string>)>) el) =>
+        new(el.Item1, HtmlConstants.NoAttributes, el.Item2.Select(s => (HtmlEl)s), "");
+
+    public static implicit operator HtmlEl((string, IEnumerable<(string, IImmutableDictionary<string, string>, HtmlEl[])>) el) =>
+        new(el.Item1, HtmlConstants.NoAttributes, el.Item2.Select(s => (HtmlEl)s), "");
+}

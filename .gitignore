@@ -1,0 +1,5 @@
+bin
+obj
+.idea
+*.sln.DotSettings.user
+BenchmarkDotNet.Artifacts
