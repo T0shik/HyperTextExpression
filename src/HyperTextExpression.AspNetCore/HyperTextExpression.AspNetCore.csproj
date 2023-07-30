@@ -6,7 +6,7 @@
         <Nullable>enable</Nullable>
         <LangVersion>11</LangVersion>
 
-        <PackageId>HyperTextExpression</PackageId>
+        <PackageId>HyperTextExpression.AspNetCore</PackageId>
         <Version>0.0.3</Version>
         <Description>Minimal HTML DSL.</Description>
         <Authors>Anton Wieslander</Authors>
@@ -14,9 +14,17 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageTags>html dsl htmx</PackageTags>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-
+        
     </PropertyGroup>
-    
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\HyperTextExpression\HyperTextExpression.csproj"/>
+    </ItemGroup>
+
     <ItemGroup>
         <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>

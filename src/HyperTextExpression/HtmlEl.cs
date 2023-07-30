@@ -1,16 +1,15 @@
 using System.Collections.Immutable;
-using System.Text;
 
 namespace HyperTextExpression;
 
-public record struct HtmlEl(
+public partial record struct HtmlEl(
     string Name,
     IDictionary<string, string> Attributes,
     IEnumerable<HtmlEl> Children,
     string Text
 )
 {
-    public override string ToString() => PrintHtml.ToString(this);
+    public override string ToString() => IPrintHtml.ToString(this);
 
 
     public static implicit operator HtmlEl(string elName) =>
