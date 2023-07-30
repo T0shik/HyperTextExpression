@@ -7,7 +7,7 @@
         <LangVersion>11</LangVersion>
 
         <PackageId>HyperTextExpression.AspNetCore</PackageId>
-        <Version>0.0.2</Version>
+        <Version>0.0.3</Version>
         <Description>Minimal HTML DSL.</Description>
         <Authors>Anton Wieslander</Authors>        
         <PackageProjectUrl>https://github.com/T0shik/HyperTextExpression</PackageProjectUrl>
