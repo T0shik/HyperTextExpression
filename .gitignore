@@ -3,3 +3,4 @@ obj
 .idea
 *.sln.DotSettings.user
 BenchmarkDotNet.Artifacts
+.DS_Store
