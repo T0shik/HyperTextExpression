@@ -131,6 +131,59 @@ public class Main
         Assert.Equal(expected, htmlString);
     }
 
+    [Fact]
+    public void linq_can_spit_out_elements()
+    {
+        var expected = """
+<!DOCTYPE html>
+<html>
+    <body>
+        <div>
+            <p>
+                <label>something:</label>
+                <strong>1</strong>
+            </p>
+            <p>
+                <label>something:</label>
+                <strong>2</strong>
+            </p>
+            <p>
+                <label>something:</label>
+                <strong>3</strong>
+            </p>
+            <p>
+                <label>something:</label>
+                <strong>4</strong>
+            </p>
+            <p>
+                <label>something:</label>
+                <strong>5</strong>
+            </p>
+            <p>
+                <label>something:</label>
+                <strong>6</strong>
+            </p>
+        </div>
+    </body>
+</html>
+""";
+        var html = HtmlDoc(
+            ("body", Children(
+                    ("div",
+                        Enumerable.Range(1, 6)
+                            .Select(i => P(
+                                ("label", "something:"),
+                                ("strong", i.ToString())
+                            ))
+                    )
+                )
+            )
+        );
+        var htmlString = html.ToString();
+
+        Assert.Equal(expected, htmlString);
+    }
+
 
     [Fact]
     public void attributes_should_be_just_as_easy()

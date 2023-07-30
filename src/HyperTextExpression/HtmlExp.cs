@@ -264,6 +264,57 @@ public partial class HtmlExp
 
     #endregion
 
+    #region P Element Templating
+
+    public static HtmlEl P() =>
+        new(
+            "p",
+            HtmlConstants.NoAttributes,
+            HtmlConstants.NoChildren,
+            ""
+        );
+
+    public static HtmlEl P(string text) =>
+        new(
+            "p",
+            HtmlConstants.NoAttributes,
+            HtmlConstants.NoChildren,
+            text
+        );
+
+    public static HtmlEl P(IDictionary<string, string> attributes) =>
+        new(
+            "p",
+            attributes,
+            HtmlConstants.NoChildren,
+            ""
+        );
+
+    public static HtmlEl P(params HtmlEl[] children) =>
+        new(
+            "p",
+            HtmlConstants.NoAttributes,
+            children,
+            ""
+        );
+
+    public static HtmlEl P(IDictionary<string, string> attributes, params HtmlEl[] children) =>
+        new(
+            "p",
+            attributes,
+            children,
+            ""
+        );
+
+    public static HtmlEl P(IDictionary<string, string> attributes, string text) =>
+        new(
+            "p",
+            attributes,
+            HtmlConstants.NoChildren,
+            text
+        );
+
+    #endregion
 
     public static IDictionary<string, string> Attrs(string key)
     {
