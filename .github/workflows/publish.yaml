@@ -1,0 +1,28 @@
+name: Push to Nuget.org
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: .NET 7
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build -c Release --no-restore
+
+      - name: Pack
+        run: dotnet pack ./src/HyperTextExpression -c Release --no-build -o ./output
+      
+      - name: Publish
+        run: dotnet nuget push "./output/**.nupkg" --api-key ${{secrets.NUGET_API_KEY}}
