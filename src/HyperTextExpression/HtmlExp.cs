@@ -2,7 +2,7 @@ using System.Collections.Immutable;
 
 namespace HyperTextExpression;
 
-public class HtmlExp
+public partial class HtmlExp
 {
     #region Generic Html Element Templating
 

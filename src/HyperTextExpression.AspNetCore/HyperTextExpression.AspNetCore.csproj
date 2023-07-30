@@ -5,14 +5,22 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>11</LangVersion>
-        
-        <PackageId>HyperTextExpression</PackageId>
+
+        <PackageId>HyperTextExpression.AspNetCore</PackageId>
         <Version>0.0.2</Version>
         <Description>Minimal HTML DSL.</Description>
-        <Authors>Anton Wieslander</Authors>
+        <Authors>Anton Wieslander</Authors>        
         <PackageProjectUrl>https://github.com/T0shik/HyperTextExpression</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageTags>html dsl htmx</PackageTags>
     </PropertyGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\HyperTextExpression\HyperTextExpression.csproj" />
+    </ItemGroup>
 
 </Project>

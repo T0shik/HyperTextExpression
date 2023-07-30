@@ -21,8 +21,11 @@ jobs:
       - name: Build
         run: dotnet build -c Release --no-restore
 
-      - name: Pack
+      - name: Pack HyperTextExpression
         run: dotnet pack ./src/HyperTextExpression -c Release --no-build -o ./output
+        
+      - name: Pack HyperTextExpression.AspNetCore
+        run: dotnet pack ./src/HyperTextExpression.AspNetCore -c Release --no-build -o ./output
       
       - name: Publish
         run: dotnet nuget push "./output/**.nupkg" -s https://api.nuget.org/v3/index.json --skip-duplicate --api-key ${{secrets.NUGET_API_KEY}}

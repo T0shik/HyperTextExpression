@@ -24,7 +24,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\HyperTextExpression\HyperTextExpression.csproj" />
+        <ProjectReference Include="..\..\src\HyperTextExpression.AspNetCore\HyperTextExpression.AspNetCore.csproj" />
+        <ProjectReference Include="..\..\src\HyperTextExpression\HyperTextExpression.csproj" />
     </ItemGroup>
 
 </Project>
