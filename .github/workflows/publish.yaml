@@ -3,7 +3,7 @@ name: Push to Nuget.org
 on: [workflow_dispatch]
 
 jobs:
-  build:
+  push_and_publish:
 
     runs-on: ubuntu-latest
 
@@ -25,4 +25,4 @@ jobs:
         run: dotnet pack ./src/HyperTextExpression -c Release --no-build -o ./output
       
       - name: Publish
-        run: dotnet nuget push "./output/**.nupkg" --api-key ${{secrets.NUGET_API_KEY}}
+        run: dotnet nuget push "./output/**.nupkg" -s https://api.nuget.org/v3/index.json --skip-duplicate --api-key ${{secrets.NUGET_API_KEY}}
