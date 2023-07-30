@@ -30,8 +30,8 @@ public class Main
 """;
 
         var html = Html(
-            head(),
-            body()
+            Head(),
+            Body()
         );
         var htmlString = html.ToString();
 
@@ -51,10 +51,10 @@ public class Main
 </html>
 """;
         var html = Html(
-            head(
+            Head(
                 ("title", "Hello World")
             ),
-            body()
+            Body()
         );
         var htmlString = html.ToString();
 
@@ -81,11 +81,11 @@ public class Main
 </html>
 """;
         var html = Html(
-            head(
+            Head(
                 ("title", "Hello World")
             ),
-            body(
-                ("ul", children(
+            Body(
+                ("ul", Children(
                         ("li", "One"),
                         ("li", "Two"),
                         ("li", "Three")
@@ -117,13 +117,96 @@ public class Main
 </html>
 """;
         var html = Html(
-            ("body", children(
+            ("body", Children(
                     ("div",
                         Enumerable.Range(1, 6)
                             .Select(i => ("p", $"{i}"))
                     )
                 )
             )
+        );
+        var htmlString = html.ToString();
+
+        Assert.Equal(expected, htmlString);
+    }
+
+
+    [Fact]
+    public void attributes_should_be_just_as_easy()
+    {
+/*
+Razor Syntax For Comparison        
+<!DOCTYPE html>
+<html>
+    <body>
+        <article class="body">
+            @for(var i = 1; i < 6; i++){
+                <p class="paragraph">Lorem Ipsum {i}</p>
+            }
+        </article>
+    </body>
+</html>
+*/
+        var expected = """
+<!DOCTYPE html>
+<html>
+    <body>
+        <article class="body">
+            <p class="paragraph">Lorem Ipsum 1</p>
+            <p class="paragraph">Lorem Ipsum 2</p>
+            <p class="paragraph">Lorem Ipsum 3</p>
+            <p class="paragraph">Lorem Ipsum 4</p>
+            <p class="paragraph">Lorem Ipsum 5</p>
+            <p class="paragraph">Lorem Ipsum 6</p>
+        </article>
+    </body>
+</html>
+""";
+        var html = Html(
+            ("body", Children(
+                ("article",
+                    Attrs("class", "body"),
+                    Enumerable.Range(1, 6)
+                        .Select(i =>
+                            ("p",
+                                Attrs("class", "paragraph"),
+                                $"Lorem Ipsum {i}")))))
+        );
+        var htmlString = html.ToString();
+
+        Assert.Equal(expected, htmlString);
+    }
+
+    [Fact]
+    public void mixing_attributes_without_keys()
+    {
+        var expected = """
+<!DOCTYPE html>
+<html>
+    <body>
+        <article class="body" show>
+            <p class="paragraph">Lorem Ipsum 1</p>
+            <p class="paragraph">Lorem Ipsum 2</p>
+            <p class="paragraph">Lorem Ipsum 3</p>
+            <p class="paragraph">Lorem Ipsum 4</p>
+            <p class="paragraph">Lorem Ipsum 5</p>
+            <p class="paragraph">Lorem Ipsum 6</p>
+        </article>
+    </body>
+</html>
+""";
+        var html = Html(
+            ("body", Children(
+                ("article",
+                    Attrs(
+                        ("class", "body"),
+                        ("show", "")
+                    ),
+                    Enumerable.Range(1, 6)
+                        .Select(i =>
+                            ("p",
+                                Attrs("class", "paragraph"),
+                                $"Lorem Ipsum {i}")))))
         );
         var htmlString = html.ToString();
 

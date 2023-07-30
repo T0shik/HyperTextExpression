@@ -28,10 +28,13 @@ public static class PrintHtml
             {
                 sb.Append(' ');
                 sb.Append(key);
-                sb.Append('=');
-                sb.Append('"');
-                sb.Append(value);
-                sb.Append('"');
+                if (!string.IsNullOrEmpty(value))
+                {
+                    sb.Append('=');
+                    sb.Append('"');
+                    sb.Append(value);
+                    sb.Append('"');
+                }
             }
 
         sb.Append('>');
@@ -74,15 +77,18 @@ public static class PrintHtml
         sb.Append("<!DOCTYPE html>\n");
         sb.Append("<html");
 
-        if (el.Attributes != HtmlConstants.NoAttributes)
+        if (!Equals(el.Attributes, HtmlConstants.NoAttributes))
             foreach (var (key, value) in el.Attributes)
             {
                 sb.Append(' ');
                 sb.Append(key);
-                sb.Append('=');
-                sb.Append('"');
-                sb.Append(value);
-                sb.Append('"');
+                if (!string.IsNullOrEmpty(value))
+                {
+                    sb.Append('=');
+                    sb.Append('"');
+                    sb.Append(value);
+                    sb.Append('"');
+                }
             }
 
         sb.Append('>');

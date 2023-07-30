@@ -11,7 +11,7 @@ public class Simple
     public string CreateHtmlWithLink()
     {
         return Html(
-            ("body", children(
+            ("body", Children(
                     ("div",
                         Enumerable.Range(1, 6)
                             .Select(i => ("p", $"{i}"))
