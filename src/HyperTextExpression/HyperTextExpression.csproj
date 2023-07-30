@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>11</LangVersion>
-        
+
         <PackageId>HyperTextExpression</PackageId>
         <Version>0.0.3</Version>
         <Description>Minimal HTML DSL.</Description>
@@ -13,6 +13,11 @@
         <PackageProjectUrl>https://github.com/T0shik/HyperTextExpression</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageTags>html dsl htmx</PackageTags>
-    </PropertyGroup>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
 
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
 </Project>
