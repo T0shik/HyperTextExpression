@@ -10,7 +10,7 @@ public class Simple
     [Benchmark]
     public string CreateHtmlWithLink()
     {
-        return Html(
+        return HtmlDoc(
             ("body", Children(
                     ("div",
                         Enumerable.Range(1, 6)

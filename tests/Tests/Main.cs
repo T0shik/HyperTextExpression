@@ -1,3 +1,4 @@
+using HyperTextExpression;
 using static HyperTextExpression.HtmlExp;
 
 namespace Test;
@@ -12,7 +13,7 @@ public class Main
 <html></html>
 """;
 
-        var html = Html();
+        var html = HtmlDoc();
         var htmlString = html.ToString();
 
         Assert.Equal(expected, htmlString);
@@ -29,7 +30,7 @@ public class Main
 </html>
 """;
 
-        var html = Html(
+        var html = HtmlDoc(
             Head(),
             Body()
         );
@@ -50,7 +51,7 @@ public class Main
     <body></body>
 </html>
 """;
-        var html = Html(
+        var html = HtmlDoc(
             Head(
                 ("title", "Hello World")
             ),
@@ -80,7 +81,7 @@ public class Main
     </body>
 </html>
 """;
-        var html = Html(
+        var html = HtmlDoc(
             Head(
                 ("title", "Hello World")
             ),
@@ -116,7 +117,7 @@ public class Main
     </body>
 </html>
 """;
-        var html = Html(
+        var html = HtmlDoc(
             ("body", Children(
                     ("div",
                         Enumerable.Range(1, 6)
@@ -162,7 +163,7 @@ Razor Syntax For Comparison
     </body>
 </html>
 """;
-        var html = Html(
+        var html = HtmlDoc(
             ("body", Children(
                 ("article",
                     Attrs("class", "body"),
@@ -195,7 +196,7 @@ Razor Syntax For Comparison
     </body>
 </html>
 """;
-        var html = Html(
+        var html = HtmlDoc(
             ("body", Children(
                 ("article",
                     Attrs(
@@ -209,6 +210,65 @@ Razor Syntax For Comparison
                                 $"Lorem Ipsum {i}")))))
         );
         var htmlString = html.ToString();
+
+        Assert.Equal(expected, htmlString);
+    }
+
+    [Fact]
+    public void return_an_html_segment()
+    {
+        var expected = """
+<div class="message-wrapper">
+    <label bold>Author</label>
+    <div class="body">Hello World</div>
+</div>
+""";
+        HtmlEl html = HtmlEl("div",
+            Attrs("class", "message-wrapper"),
+            Children(
+                ("label", Attrs("bold"), "Author"),
+                ("div",
+                    Attrs("class", "body"),
+                    "Hello World")));
+
+        var htmlString = html.ToString();
+
+        Assert.Equal(expected, htmlString);
+    }
+
+
+    [Fact]
+    public void works_with_string_literal()
+    {
+        var expected = """
+<!DOCTYPE html>
+<html>
+    <body>
+        <div class="chat">
+<div class="message-wrapper">
+    <label bold>Author</label>
+    <div class="body">Hello World</div>
+</div>
+        </div>
+    </body>
+</html>
+""";
+
+        var htmlString = $"""
+<!DOCTYPE html>
+<html>
+    <body>
+        <div class="chat">
+{
+    Div(Attrs("class", "message-wrapper"),
+        Children(
+            ("label", Attrs("bold"), "Author"),
+            Div(Attrs("class", "body"), "Hello World")))
+}
+        </div>
+    </body>
+</html>
+""";
 
         Assert.Equal(expected, htmlString);
     }
