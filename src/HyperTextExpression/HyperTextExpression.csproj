@@ -4,6 +4,14 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <LangVersion>11</LangVersion>
+        
+        <PackageId>HyperTextExpression</PackageId>
+        <Version>0.1.0</Version>
+        <Description>Minimal HTML DSL.</Description>
+        <Authors>Anton Wieslander</Authors>
+        <PackageProjectUrl>https://martendb.io/</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
 </Project>
