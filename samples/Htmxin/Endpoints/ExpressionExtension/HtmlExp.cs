@@ -9,4 +9,8 @@ public static class HtmlExp
                 "integrity", "sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV",
                 "crossorigin", "anonymous")
         );
+
+    public static HtmlEl HtmxJsonEncScript = ("script",
+            Attrs("src", "https://unpkg.com/htmx.org/dist/ext/json-enc.js")
+        );
 }
