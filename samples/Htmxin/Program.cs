@@ -23,6 +23,10 @@ app.MapPost("/todo-app/add-todo", TodoApp.AddTodo);
 app.MapPut("/todo-app/update-status", TodoApp.UpdateTodo);
 app.MapDelete("/todo-app/delete-todo/{id:int}", TodoApp.DeleteTodo);
 
+app.MapGet("/register/view", Registration.App);
+app.MapPost("/register/form", Registration.Submit);
+app.MapPost("/register/validate-pwd", Registration.ValidatePassword);
+
 app.Run();
 
 public class BooleanConverter : JsonConverter<bool>

@@ -49,6 +49,8 @@ public interface IPrintHtml
             {
                 foreach (var child in arr)
                 {
+                    if(child == HtmlConstants.Empty) continue;
+                    
                     print.Write('\n');
                     PrintHtmlEl(child, print, indent + 4);
                 }
@@ -57,6 +59,8 @@ public interface IPrintHtml
             {
                 foreach (var child in el.Children)
                 {
+                    if(child == HtmlConstants.Empty) continue;
+                    
                     print.Write('\n');
                     PrintHtmlEl(child, print, indent + 4);
                 }
@@ -103,6 +107,8 @@ public interface IPrintHtml
             {
                 foreach (var child in arr)
                 {
+                    if(child == HtmlConstants.Empty) continue;
+                    
                     print.Write('\n');
                     PrintHtmlEl(child, print, 4);
                 }
@@ -111,6 +117,8 @@ public interface IPrintHtml
             {
                 foreach (var child in el.Children)
                 {
+                    if(child == HtmlConstants.Empty) continue;
+                    
                     print.Write('\n');
                     PrintHtmlEl(child, print, 4);
                 }

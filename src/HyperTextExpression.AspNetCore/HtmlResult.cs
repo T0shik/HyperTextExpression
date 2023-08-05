@@ -6,13 +6,18 @@ namespace HyperTextExpression.AspNetCore;
 public abstract class BaseHtmlResult : IResult
 {
     private readonly Encoder _encoder;
+    private readonly int _statusCode;
 
-    public BaseHtmlResult(Encoder encoder) => _encoder = encoder;
+    public BaseHtmlResult(Encoder encoder, int statusCode)
+    {
+        _encoder = encoder;
+        _statusCode = statusCode;
+    }
 
     public async Task ExecuteAsync(HttpContext httpContext)
     {
         var response = httpContext.Response;
-        response.StatusCode = 200;
+        response.StatusCode = _statusCode;
         response.Headers.Add("content-type", "text/html");
         var writer = new PrintHtmlPipeWriter(response.BodyWriter, _encoder);
         await response.StartAsync();
@@ -29,10 +34,12 @@ public class HtmlResult : BaseHtmlResult
 {
     private readonly HtmlEl _el;
 
-    public HtmlResult(HtmlEl el) : base(Encoding.UTF8.GetEncoder()) =>
+    public HtmlResult(HtmlEl el, int statusCode)
+        : base(Encoding.UTF8.GetEncoder(), statusCode) =>
         _el = el;
 
-    public HtmlResult(HtmlEl el, Encoding encoding) : base(encoding.GetEncoder()) =>
+    public HtmlResult(HtmlEl el, Encoding encoding, int statusCode)
+        : base(encoding.GetEncoder(), statusCode) =>
         _el = el;
 
     public override void Print(PrintHtmlPipeWriter writer) =>
@@ -43,10 +50,12 @@ public class CollectionHtmlResult : BaseHtmlResult
 {
     private readonly HtmlEl[] _el;
 
-    public CollectionHtmlResult(HtmlEl[] el) : base(Encoding.UTF8.GetEncoder()) =>
+    public CollectionHtmlResult(HtmlEl[] el, int statusCode) :
+        base(Encoding.UTF8.GetEncoder(), statusCode) =>
         _el = el;
 
-    public CollectionHtmlResult(HtmlEl[] el, Encoding encoding) : base(encoding.GetEncoder()) =>
+    public CollectionHtmlResult(HtmlEl[] el, Encoding encoding, int statusCode) :
+        base(encoding.GetEncoder(), statusCode) =>
         _el = el;
 
     public override void Print(PrintHtmlPipeWriter writer)

@@ -394,9 +394,9 @@ public partial class HtmlExp
 
     #endregion
 
-    public static HtmlAttributes Attrs(string attribute) => new() { attribute };
-    public static HtmlAttributes Attrs(HtmlAttribute attribute) => new() { attribute };
-    public static HtmlAttributes Attrs(params HtmlAttribute[] attributes) => new(attributes);
+    public static HtmlAttributes Attrs(string attribute) => new HtmlAttributes().Add(attribute);
+    public static HtmlAttributes Attrs(HtmlAttribute attribute) => new HtmlAttributes().Add(attribute);
+    public static HtmlAttributes Attrs(params HtmlAttribute[] attributes) => new HtmlAttributes(attributes);
 
     public static HtmlAttributes Attrs(params string[] attributeList)
     {
@@ -419,7 +419,7 @@ public partial class HtmlExp
         return result;
     }
 
-    public static HtmlAttributes Attrs(string key, string value) => new() { (key, value) };
+    public static HtmlAttributes Attrs(string key, string value) => new HtmlAttributes().Add((key, value));
 
     public static HtmlEl[] Children(params HtmlEl[] children) => children;
 }
