@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarks", "tests\Benchma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperTextExpression.AspNetCore", "src\HyperTextExpression.AspNetCore\HyperTextExpression.AspNetCore.csproj", "{9F39F54D-F987-4CDF-9EF9-BADF6DCCE233}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{1F6EF040-1C84-474B-AF9F-FB1F36A42980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Htmxin", "samples\Htmxin\Htmxin.csproj", "{D788C25B-9615-4F65-89A3-4197DB93A39A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +26,7 @@ Global
 		{E42F667A-C488-41EE-82D3-145D3E853FB8} = {393251B8-7CCC-48D7-8881-A1313F8B3D02}
 		{C4E4A05D-25B1-461A-A107-E8802E978784} = {CBC5A985-DEE6-4C49-A738-1264C5B49151}
 		{9F39F54D-F987-4CDF-9EF9-BADF6DCCE233} = {393251B8-7CCC-48D7-8881-A1313F8B3D02}
+		{D788C25B-9615-4F65-89A3-4197DB93A39A} = {1F6EF040-1C84-474B-AF9F-FB1F36A42980}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5E2802F5-6872-4844-A63C-240AD330404F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -40,5 +45,9 @@ Global
 		{9F39F54D-F987-4CDF-9EF9-BADF6DCCE233}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F39F54D-F987-4CDF-9EF9-BADF6DCCE233}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F39F54D-F987-4CDF-9EF9-BADF6DCCE233}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D788C25B-9615-4F65-89A3-4197DB93A39A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D788C25B-9615-4F65-89A3-4197DB93A39A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D788C25B-9615-4F65-89A3-4197DB93A39A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D788C25B-9615-4F65-89A3-4197DB93A39A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

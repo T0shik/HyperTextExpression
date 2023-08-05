@@ -61,7 +61,32 @@ public class Main
 
         Assert.Equal(expected, htmlString);
     }
+    
+    [Fact]
+    public void specify_empty_element_to_render_nothing()
+    {
+        var expected = """
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello World</title>
+    </head>
+    <body>
+    </body>
+</html>
+""";
+        var html = HtmlDoc(
+            Head(
+                ("title", "Hello World")
+            ),
+            Body(
+                true ? HtmlConstants.Empty : Div("don't show me!")
+            )
+        );
+        var htmlString = html.ToString();
 
+        Assert.Equal(expected, htmlString);
+    }
 
     [Fact]
     public void body_with_list()

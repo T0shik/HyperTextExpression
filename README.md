@@ -65,7 +65,8 @@ dotnet add package HyperTextExpression.AspNetCore
 
 ## Examples
 
-If you've never seen Uncle Bob's mythical "tests as documentation", [here you go](./tests/Tests/Main.cs)
+- If you've never seen Uncle Bob's mythical "tests as documentation", [here you go](./tests/Tests/Main.cs)
+- [Samples](./samples/Htmxin) with [Htmx](https://htmx.org)
 
 ## Custom Serialization
 - [PrintHtmlStringBuilder.cs](./src/HyperTextExpression/PrintHtmlStringBuilder.cs)

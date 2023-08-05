@@ -1,5 +1,3 @@
-using System.Collections.Immutable;
-
 namespace HyperTextExpression;
 
 public partial class HtmlExp
@@ -22,7 +20,7 @@ public partial class HtmlExp
             text
         );
 
-    public static HtmlEl HtmlEl(string name, IDictionary<string, string> attributes) =>
+    public static HtmlEl HtmlEl(string name, HtmlAttributes attributes) =>
         new(
             name,
             attributes,
@@ -38,7 +36,7 @@ public partial class HtmlExp
             ""
         );
 
-    public static HtmlEl HtmlEl(string name, IDictionary<string, string> attributes, params HtmlEl[] children) =>
+    public static HtmlEl HtmlEl(string name, HtmlAttributes attributes, params HtmlEl[] children) =>
         new(
             name,
             attributes,
@@ -46,7 +44,7 @@ public partial class HtmlExp
             ""
         );
 
-    public static HtmlEl HtmlEl(string name, IDictionary<string, string> attributes, string text) =>
+    public static HtmlEl HtmlEl(string name, HtmlAttributes attributes, string text) =>
         new(
             name,
             attributes,
@@ -74,7 +72,7 @@ public partial class HtmlExp
             text
         );
 
-    public static HtmlEl HtmlDoc(IDictionary<string, string> attributes) =>
+    public static HtmlEl HtmlDoc(HtmlAttributes attributes) =>
         new(
             "html",
             attributes,
@@ -90,7 +88,15 @@ public partial class HtmlExp
             ""
         );
 
-    public static HtmlEl HtmlDoc(IDictionary<string, string> attributes, params HtmlEl[] children) =>
+    public static HtmlEl HtmlDoc(IEnumerable<HtmlEl> children) =>
+        new(
+            "html",
+            HtmlConstants.NoAttributes,
+            children,
+            ""
+        );
+
+    public static HtmlEl HtmlDoc(HtmlAttributes attributes, params HtmlEl[] children) =>
         new(
             "html",
             attributes,
@@ -98,7 +104,15 @@ public partial class HtmlExp
             ""
         );
 
-    public static HtmlEl HtmlDoc(IDictionary<string, string> attributes, string text) =>
+    public static HtmlEl HtmlDoc(HtmlAttributes attributes, IEnumerable<HtmlEl> children) =>
+        new(
+            "html",
+            attributes,
+            children,
+            ""
+        );
+
+    public static HtmlEl HtmlDoc(HtmlAttributes attributes, string text) =>
         new(
             "html",
             attributes,
@@ -126,7 +140,7 @@ public partial class HtmlExp
             text
         );
 
-    public static HtmlEl Head(IDictionary<string, string> attributes) =>
+    public static HtmlEl Head(HtmlAttributes attributes) =>
         new(
             "head",
             attributes,
@@ -142,7 +156,15 @@ public partial class HtmlExp
             ""
         );
 
-    public static HtmlEl Head(IDictionary<string, string> attributes, params HtmlEl[] children) =>
+    public static HtmlEl Head(IEnumerable<HtmlEl> children) =>
+        new(
+            "head",
+            HtmlConstants.NoAttributes,
+            children,
+            ""
+        );
+
+    public static HtmlEl Head(HtmlAttributes attributes, params HtmlEl[] children) =>
         new(
             "head",
             attributes,
@@ -150,7 +172,15 @@ public partial class HtmlExp
             ""
         );
 
-    public static HtmlEl Head(IDictionary<string, string> attributes, string text) =>
+    public static HtmlEl Head(HtmlAttributes attributes, IEnumerable<HtmlEl> children) =>
+        new(
+            "head",
+            attributes,
+            children,
+            ""
+        );
+
+    public static HtmlEl Head(HtmlAttributes attributes, string text) =>
         new(
             "head",
             attributes,
@@ -178,7 +208,7 @@ public partial class HtmlExp
             text
         );
 
-    public static HtmlEl Body(IDictionary<string, string> attributes) =>
+    public static HtmlEl Body(HtmlAttributes attributes) =>
         new(
             "body",
             attributes,
@@ -194,7 +224,15 @@ public partial class HtmlExp
             ""
         );
 
-    public static HtmlEl Body(IDictionary<string, string> attributes, params HtmlEl[] children) =>
+    public static HtmlEl Body(IEnumerable<HtmlEl> children) =>
+        new(
+            "body",
+            HtmlConstants.NoAttributes,
+            children,
+            ""
+        );
+
+    public static HtmlEl Body(HtmlAttributes attributes, params HtmlEl[] children) =>
         new(
             "body",
             attributes,
@@ -202,7 +240,15 @@ public partial class HtmlExp
             ""
         );
 
-    public static HtmlEl Body(IDictionary<string, string> attributes, string text) =>
+    public static HtmlEl Body(HtmlAttributes attributes, IEnumerable<HtmlEl> children) =>
+        new(
+            "body",
+            attributes,
+            children,
+            ""
+        );
+
+    public static HtmlEl Body(HtmlAttributes attributes, string text) =>
         new(
             "body",
             attributes,
@@ -230,7 +276,7 @@ public partial class HtmlExp
             text
         );
 
-    public static HtmlEl Div(IDictionary<string, string> attributes) =>
+    public static HtmlEl Div(HtmlAttributes attributes) =>
         new(
             "div",
             attributes,
@@ -246,7 +292,15 @@ public partial class HtmlExp
             ""
         );
 
-    public static HtmlEl Div(IDictionary<string, string> attributes, params HtmlEl[] children) =>
+    public static HtmlEl Div(IEnumerable<HtmlEl> children) =>
+        new(
+            "div",
+            HtmlConstants.NoAttributes,
+            children,
+            ""
+        );
+
+    public static HtmlEl Div(HtmlAttributes attributes, params HtmlEl[] children) =>
         new(
             "div",
             attributes,
@@ -254,7 +308,15 @@ public partial class HtmlExp
             ""
         );
 
-    public static HtmlEl Div(IDictionary<string, string> attributes, string text) =>
+    public static HtmlEl Div(HtmlAttributes attributes, IEnumerable<HtmlEl> children) =>
+        new(
+            "div",
+            attributes,
+            children,
+            ""
+        );
+
+    public static HtmlEl Div(HtmlAttributes attributes, string text) =>
         new(
             "div",
             attributes,
@@ -282,7 +344,7 @@ public partial class HtmlExp
             text
         );
 
-    public static HtmlEl P(IDictionary<string, string> attributes) =>
+    public static HtmlEl P(HtmlAttributes attributes) =>
         new(
             "p",
             attributes,
@@ -298,7 +360,15 @@ public partial class HtmlExp
             ""
         );
 
-    public static HtmlEl P(IDictionary<string, string> attributes, params HtmlEl[] children) =>
+    public static HtmlEl P(IEnumerable<HtmlEl> children) =>
+        new(
+            "p",
+            HtmlConstants.NoAttributes,
+            children,
+            ""
+        );
+
+    public static HtmlEl P(HtmlAttributes attributes, params HtmlEl[] children) =>
         new(
             "p",
             attributes,
@@ -306,7 +376,15 @@ public partial class HtmlExp
             ""
         );
 
-    public static HtmlEl P(IDictionary<string, string> attributes, string text) =>
+    public static HtmlEl P(HtmlAttributes attributes, IEnumerable<HtmlEl> children) =>
+        new(
+            "p",
+            attributes,
+            children,
+            ""
+        );
+
+    public static HtmlEl P(HtmlAttributes attributes, string text) =>
         new(
             "p",
             attributes,
@@ -316,14 +394,11 @@ public partial class HtmlExp
 
     #endregion
 
-    public static IDictionary<string, string> Attrs(string key)
-    {
-        var result = new Dictionary<string, string>();
-        result.Add(key, "");
-        return result;
-    }
+    public static HtmlAttributes Attrs(string attribute) => new HtmlAttributes().Add(attribute);
+    public static HtmlAttributes Attrs(HtmlAttribute attribute) => new HtmlAttributes().Add(attribute);
+    public static HtmlAttributes Attrs(params HtmlAttribute[] attributes) => new HtmlAttributes(attributes);
 
-    public static IDictionary<string, string> Attrs(params string[] attributeList)
+    public static HtmlAttributes Attrs(params string[] attributeList)
     {
         if (attributeList.Length == 0)
         {
@@ -335,32 +410,16 @@ public partial class HtmlExp
             throw new ArgumentException($"supplied attribute count needs to be divisible by 2: {string.Join(", ", attributeList)}");
         }
 
-        var result = new Dictionary<string, string>();
+        var result = new HtmlAttributes();
         for (var i = 0; i < attributeList.Length; i += 2)
         {
-            result.Add(attributeList[i], attributeList[i + 1]);
+            result.Add((attributeList[i], attributeList[i + 1]));
         }
 
         return result;
     }
 
-    public static IDictionary<string, string> Attrs(string key, string value)
-    {
-        var result = new Dictionary<string, string>();
-        result.Add(key, value);
-        return result;
-    }
-
-    public static IDictionary<string, string> Attrs(params (string, string)[] attributes)
-    {
-        var result = new Dictionary<string, string>();
-        foreach (var (key, value) in attributes)
-        {
-            result.Add(key, value);
-        }
-
-        return result;
-    }
+    public static HtmlAttributes Attrs(string key, string value) => new HtmlAttributes().Add((key, value));
 
     public static HtmlEl[] Children(params HtmlEl[] children) => children;
 }

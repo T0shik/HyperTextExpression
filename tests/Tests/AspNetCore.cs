@@ -25,7 +25,7 @@ public class AspNetCore
                 Div(Attrs("class", "body"), "Hello World")));
 
         var pipe = new Pipe();
-        await new HtmlResult(html).ExecuteAsync(
+        await new HtmlResult(html, 200).ExecuteAsync(
             new MockHttpContext(new(pipe.Writer))
         );
         
