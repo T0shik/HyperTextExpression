@@ -81,7 +81,7 @@ public class MyPrintHtml : IPrintHtml
     public void Write(ReadOnlySpan<char> chars) => ...;
 }
 ```
-2. Dump `HtmlEl` to `IPrint`
+2. Dump `HtmlEl` to your implementation of `IPrintHtml`
 ```csharp
 var html = HtmlDoc(
         Body(
