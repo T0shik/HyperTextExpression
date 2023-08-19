@@ -1,10 +1,18 @@
-using HyperTextExpression;
 using static HyperTextExpression.HtmlExp;
 
 namespace Test;
 
 public class Convenience
 {
+    [Fact]
+    public void meta_tags()
+    {
+        Assert.Equal("<meta charset=\"UTF-8\"></meta>", MetaCharset().ToString());
+        Assert.Equal("<meta charset=\"UTF-16\"></meta>", MetaCharset("UTF-16").ToString());
+        Assert.Equal("<meta name=\"description\" content=\"Hello World\"></meta>", Meta("description", "Hello World").ToString());
+        Assert.Equal("<meta property=\"og:title\" content=\"A Title\"></meta>", MetaOg("title", "A Title").ToString());
+    }
+
     [Fact]
     public void style_link()
     {
