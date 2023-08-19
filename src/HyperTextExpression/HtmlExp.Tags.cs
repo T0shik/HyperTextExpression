@@ -13,8 +13,7 @@ public partial class HtmlExp
     public static HtmlEl Script(string src, HtmlAttributes? attributes = null)
     {
         var defaultAttributes = Attrs(
-            "src", src,
-            "href", "href"
+            "src", src
         );
 
         if (attributes != null)
